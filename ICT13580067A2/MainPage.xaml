@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="ICT13580067A2.MainPage"
+    Title="Rose Shop">
+
+    <ContentPage.ToolbarItems>
+        
+        <ToolbarItem
+            Text="New"
+            x:Name="newButton"/>
+        
+    </ContentPage.ToolbarItems>
+    
+    <ListView
+        x:Name="productListView"
+        RowHeight="100">
+
+        <ListView.ItemTemplate>
+            
+            <DataTemplate>
+                
+                <ViewCell>
+                    
+                    <ViewCell.ContextActions>
+                        
+                        <MenuItem
+                            Text="Edit"
+                            CommandParameter="{Binding .}"
+                            Clicked="Edit_Clicked"/>
+                        
+                        <MenuItem
+                            Text="Delete"
+                            CommandParameter="{Binding .}"
+                            IsDestructive="true"
+                            Clicked="Delete_Clicked"/>
+                    </ViewCell.ContextActions>
+                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image
+                            BackgroundColor="Silver"
+                            HeightRequest="100"
+                            Source=" findddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"/>
+
+                        <StackLayout
+                            
+                            Grid.Column="1"
+                            Orientation="Vertical">
+
+                            <Label
+                                Text="{Binding Name}"
+                                FontAttributes="Bold"
+                                TextColor="Navy"/>  
+                            
+                            <Label
+                                Text="{Binding Description}"
+                                TextColor="Gray"
+                                LineBreakMode="TailTruncation"/>
+                            
+                            <Label
+                                Text="{Binding SellPrice, StringFormat='ราคาขาย {0:N0} บาท'}"/>
+                            
+                            <Label
+                                Text="{Binding Stock, StringFormat='สินค้าคงเหลือ {0}'}"/>
+                            
+                        </StackLayout>
+                        
+                        <Button
+                            Text="+"
+                            FontSize="30"
+                            Grid.Column="2"
+                            Margin="5"
+                            BackgroundColor="Silver"
+                            VerticalOptions="End"
+                            HeightRequest="50"/>
+                        
+                    </Grid>
+                    
+                </ViewCell>
+                
+            </DataTemplate>
+            
+        </ListView.ItemTemplate>
+        
+    </ListView>
+</ContentPage>
